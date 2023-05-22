@@ -4,6 +4,7 @@ object Main extends App {
   if (args.length > 0) {
     val filename = args(0)
     val content = Source.fromFile(filename).getLines().toVector
+    // afficher le contenue du csv 
     println(content)
   } else {
     println("Erreur : Le programme attend au moins un argument")
