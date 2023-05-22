@@ -1,5 +1,6 @@
 import scala.io.Source
 import scopt.OParser
+import java.nio.file.{Files, Paths}
 
 case class Config(path: String, gender: Option[String])
 
@@ -84,5 +85,16 @@ object Main_using_row {
     } else {
       println("Le fichier est vide")
     }
+  }
+}
+
+object Main_using_parse {
+  def main(args: Array[String]): Unit = {
+    val filename = args(0)
+
+    val lines = Files.readAllLines(Paths.get(filename)).toArray(Array[String]())
+    val data = Data.parse(lines.toVector)
+
+    println(data)
   }
 }
