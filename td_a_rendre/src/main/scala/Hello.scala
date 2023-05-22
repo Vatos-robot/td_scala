@@ -69,3 +69,20 @@ object Main {
     }
   }
 }
+
+object Main_using_row {
+  def main(args: Array[String]): Unit = {
+    val filename = args(0)
+
+    val fileLines = Source.fromFile(filename).getLines().toVector
+
+    if (fileLines.nonEmpty) {
+      val firstLine = fileLines.head
+      val row = Data.Row.parse(firstLine)
+      println("Il y a " + fileLines.size + " utilisateurs")
+      println("Première ligne du fichier : " + row)
+    } else {
+      println("Le fichier est vide")
+    }
+  }
+}
